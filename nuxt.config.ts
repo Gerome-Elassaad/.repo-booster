@@ -1,9 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // Extend Nuxt UI Pro
   extends: ['@nuxt/ui-pro'],
 
-  // Modules configuration
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
@@ -15,46 +13,54 @@ export default defineNuxtConfig({
     'nuxt-og-image'
   ],
 
-  // Add metadata for SEO and global defaults using `head`
-  app: {
-    head: {
-      meta: [
-        { name: 'release-date', content: '2024-07-11' } // Replace with actual use case
-      ]
+  hooks: {
+    // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
+    'components:extend': (components) => {
+      const globals = components.filter(c => ['UButton'].includes(c.pascalName))
+
+      globals.forEach(c => c.global = true)
     }
   },
 
-  // Runtime configuration
-  runtimeConfig: {
-    public: {
-      siteUrl: 'https://example.com' // Replace with your site URL
-    }
+  colorMode: {
+    disableTransition: true
   },
 
-  // Nitro configuration
   nitro: {
     prerender: {
       routes: [
-        '/', // Prerender the home page
-        '/docs' // Prerender the docs page
+        '/',
+        '/docs'
       ],
-      crawlLinks: true // Crawl links for additional routes
-    },
-    routeRules: {
-      '/api/search.json': { prerender: true }, // Valid rule
-      '/docs': { prerender: true } // Cleaned invalid properties
+      crawlLinks: true
     }
   },
 
-  hooks: {
-    // Define global components for use in `.md` files
-    'components:extend': (components: any[]) => {
-      const globals = components.filter(c => ['UButton'].includes(c.pascalName))
-      globals.forEach(c => (c.global = true))
-    }
+  routeRules: {
+    '/api/search.json': { prerender: true },
+    '/docs': { redirect: '/docs/getting-started', prerender: false }
+  },
+
+  devtools: {
+    enabled: true
+  },
+
+  typescript: {
+    strict: false
+  },
+
+  future: {
+    compatibilityVersion: 4
   },
 
   eslint: {
-    // Placeholder for ESLint options (if needed)
-  }
+    config: {
+      stylistic: {
+        commaDangle: 'never',
+        braceStyle: '1tbs'
+      }
+    }
+  },
+
+  compatibilityDate: '2024-07-11'
 })
