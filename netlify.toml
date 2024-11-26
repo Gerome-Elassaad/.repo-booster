@@ -1,0 +1,12 @@
+[build]
+  command = "pnpm build"
+  publish = ".output/public"
+  functions = ".output/server/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
