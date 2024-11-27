@@ -36,17 +36,61 @@ useHead({
   }
 }
 
+/* Overlay styling */
 .overlay {
   background-size: 100px 100px;
   background-image:
     linear-gradient(to right, rgb(var(--color-gray-200)) 0.5px, transparent 0.5px),
     linear-gradient(to bottom, rgb(var(--color-gray-200)) 0.5px, transparent 0.5px);
+  transition: background 0.3s ease;
 }
+
+.overlay-hover {
+  background-image:
+    linear-gradient(to right, rgb(var(--color-gray-300)) 0.5px, transparent 0.5px),
+    linear-gradient(to bottom, rgb(var(--color-gray-300)) 0.5px, transparent 0.5px);
+}
+
 .dark {
   .overlay {
     background-image:
       linear-gradient(to right, rgb(var(--color-gray-900)) 0.5px, transparent 0.5px),
       linear-gradient(to bottom, rgb(var(--color-gray-900)) 0.5px, transparent 0.5px);
   }
+  .overlay-hover {
+    background-image:
+      linear-gradient(to right, rgb(var(--color-gray-800)) 0.5px, transparent 0.5px),
+      linear-gradient(to bottom, rgb(var(--color-gray-800)) 0.5px, transparent 0.5px);
+  }
+}
+
+/* Button styling */
+.ubutton {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.ubutton::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 5px;
+  background: rgb(var(--color-primary-500));
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ubutton-hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1.2);
+}
+
+.ubutton:hover {
+  color: rgb(var(--color-primary-500));
 }
 </style>
