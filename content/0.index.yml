@@ -10,12 +10,12 @@ hero:
     icon: i-heroicons-arrow-top-right-on-square-20-solid
   links:
     - label: Get Started
-      to: '/signup'
+      to: "/signup"
       size: xl
       color: black
       icon: i-heroicons-arrow-right-20-solid
       trailing: true
-    - label: Use This Template
+    - label: Install Repo-Booster
       icon: i-simple-icons-github
       size: xl
       color: gray

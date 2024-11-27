@@ -1,55 +1,74 @@
 <script setup lang="ts">
-const links = [{
-  label: 'Resources',
-  children: [{
-    label: 'Help center'
-  }, {
-    label: 'Docs'
-  }, {
-    label: 'Roadmap'
-  }, {
-    label: 'Changelog'
-  }]
-}, {
-  label: 'Features',
-  children: [{
-    label: 'Affiliates'
-  }, {
-    label: 'Portal'
-  }, {
-    label: 'Jobs'
-  }, {
-    label: 'Sponsors'
-  }]
-}, {
-  label: 'Company',
-  children: [{
-    label: 'About'
-  }, {
-    label: 'Pricing'
-  }, {
-    label: 'Careers'
-  }, {
-    label: 'Blog'
-  }]
-}]
+const links = [
+  {
+    label: "Resources",
+    children: [
+      {
+        label: "Help center",
+      },
+      {
+        label: "Docs",
+      },
+      {
+        label: "Roadmap",
+      },
+      {
+        label: "Changelog",
+      },
+    ],
+  },
+  {
+    label: "Features",
+    children: [
+      {
+        label: "Affiliates",
+      },
+      {
+        label: "Portal",
+      },
+      {
+        label: "Jobs",
+      },
+      {
+        label: "Sponsors",
+      },
+    ],
+  },
+  {
+    label: "Company",
+    children: [
+      {
+        label: "About",
+      },
+      {
+        label: "Pricing",
+      },
+      {
+        label: "Careers",
+      },
+      {
+        label: "Blog",
+      },
+    ],
+  },
+];
 
-const toast = useToast()
+const toast = useToast();
 
-const email = ref('')
-const loading = ref(false)
+const email = ref("");
+const loading = ref(false);
 
 function onSubmit() {
-  loading.value = true
+  loading.value = true;
 
   setTimeout(() => {
     toast.add({
-      title: 'Subscribed!',
-      description: 'You\'ve been subscribed to our newsletter.'
-    })
+      title: "Subscribed!",
+      description: "You've been subscribed to our newsletter.",
+    });
 
-    loading.value = false
-  }, 1000)
+    loading.value = false;
+  }, 1000);
 }
 </script>
 
@@ -100,7 +119,7 @@ function onSubmit() {
       <UColorModeButton size="sm" />
 
       <UButton
-        to="https://github.com/nuxt-ui-pro/saas"
+        to="https://github.com/enterprises/repo-booster"
         target="_blank"
         icon="i-simple-icons-github"
         aria-label="GitHub"
