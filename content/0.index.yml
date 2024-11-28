@@ -1,4 +1,4 @@
-title: Repo-Booster - The Ultimate GitHub SEO App
+title: Repo-Booster - The Ultimate GitHub Repository Booster
 description: Repo-Booster is the No.1 app to boost your repository's visibility, featuring powerful tools like SEO analysis, social media integration, star growth tracking, and more.
 navigation: false
 hero:
@@ -124,7 +124,7 @@ cta:
   title: Start Growing Your Repository Today
   description: Join thousands of developers who trust Repo-Booster to improve their GitHub visibility and engagement.
   links:
-    - label: Buy Now
+    - label: Get Pro Version
       size: xl
       color: black
       to: /pricing

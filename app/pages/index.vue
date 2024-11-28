@@ -1,7 +1,8 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
+const { data: page } = await useAsyncData('index', () => queryContent('/').findOne());
+
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true });
 }
 
 useSeoMeta({
@@ -9,26 +10,30 @@ useSeoMeta({
   title: page.value.title,
   ogTitle: page.value.title,
   description: page.value.description,
-  ogDescription: page.value.description
-})
+  ogDescription: page.value.description,
+});
 
 // Mouse tracking logic
-const mouseX = ref(0)
-const mouseY = ref(0)
+const mouseX = ref(0);
+const mouseY = ref(0);
+
+const handleMouseMove = (event: MouseEvent) => {
+  mouseX.value = event.clientX;
+  mouseY.value = event.clientY;
+};
 
 onMounted(() => {
-  const handleMouseMove = (event: MouseEvent) => {
-    mouseX.value = event.clientX
-    mouseY.value = event.clientY
-  }
-  window.addEventListener('mousemove', handleMouseMove)
-  onUnmounted(() => window.removeEventListener('mousemove', handleMouseMove))
-})
+  window.addEventListener('mousemove', handleMouseMove);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('mousemove', handleMouseMove);
+});
 </script>
 
 <template>
   <div v-if="page">
-    <!-- Apply mouse tracking shadow effect -->
+    <!-- Mouse Tracking Glow -->
     <div
       class="tracking-shadow"
       :style="{ '--mouse-x': `${mouseX}px`, '--mouse-y': `${mouseY}px` }"
@@ -54,14 +59,9 @@ onMounted(() => {
             class="focus:outline-none hover:button-glow"
             tabindex="-1"
           >
-            <span
-              class="absolute inset-0"
-              aria-hidden="true"
-            />
+            <span class="absolute inset-0" aria-hidden="true" />
           </NuxtLink>
-
           {{ page.hero.headline.label }}
-
           <UIcon
             v-if="page.hero.headline.icon"
             :name="page.hero.headline.icon"
@@ -128,6 +128,7 @@ onMounted(() => {
   </div>
 </template>
 
+
 <style scoped>
 /* Mouse shadow tracking effect */
 .tracking-shadow {
@@ -137,7 +138,7 @@ onMounted(() => {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(0, 120, 255, 0.3), transparent 60%);
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(0, 120, 255, 0.2), transparent 40%);
   z-index: 9999;
 }
 
@@ -148,12 +149,10 @@ onMounted(() => {
     linear-gradient(to right, rgb(var(--color-gray-200)) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(var(--color-gray-200)) 1px, transparent 1px);
 }
-.dark {
-  .landing-grid {
-    background-image:
-      linear-gradient(to right, rgb(var(--color-gray-800)) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(var(--color-gray-800)) 1px, transparent 1px);
-  }
+.dark .landing-grid {
+  background-image:
+    linear-gradient(to right, rgb(var(--color-gray-800)) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--color-gray-800)) 1px, transparent 1px);
 }
 
 /* Button hover electric blue underglow */
@@ -169,8 +168,8 @@ onMounted(() => {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  height: 5px;
+  width: 80%; /* Reduced size */
+  height: 3px; /* Halved height */
   background: linear-gradient(90deg, rgba(0, 120, 255, 0.7), rgba(0, 240, 255, 0.7));
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;

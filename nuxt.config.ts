@@ -14,11 +14,9 @@ export default defineNuxtConfig({
   ],
 
   hooks: {
-    // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
     'components:extend': (components) => {
-      const globals = components.filter(c => ['UButton'].includes(c.pascalName))
-
-      globals.forEach(c => c.global = true)
+      const globals = components.filter(c => ['UButton'].includes(c.pascalName));
+      globals.forEach(c => (c.global = true));
     }
   },
 
@@ -62,5 +60,14 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2024-07-11'
-})
+  compatibilityDate: '2024-07-11',
+
+  content: {
+    navigation: {
+      fields: ['title'] // Include titles from _dir.yml
+    },
+    highlight: {
+      theme: 'github-dark'
+    }
+  }
+});
