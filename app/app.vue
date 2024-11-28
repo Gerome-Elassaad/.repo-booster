@@ -18,9 +18,9 @@ useHead({
 })
 
 useSeoMeta({
-  titleTemplate: '%s - Nuxt UI Pro - SaaS template',
-  ogImage: 'https://saas-template.nuxt.dev/social-card.png',
-  twitterImage: 'https://saas-template.nuxt.dev/social-card.png',
+  titleTemplate: '%s - Repo-Booster - Boost Your Github Repo Today!',
+  ogImage: 'https://repo-booster.com/social-card.jpg',
+  twitterImage: 'https://repo-booster.com/social-card.jpg',
   twitterCard: 'summary_large_image'
 })
 </script>
