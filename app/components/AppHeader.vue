@@ -3,37 +3,19 @@
 const links = [
   {
     label: 'Docs',
-    to: '/docs',
+    to: 'https://docs.repo-booster.com',
     icon: 'i-heroicons-book-open-20-solid',
-    children: [
-      {
-        label: 'Getting Started',
-        to: '/docs/getting-started',
-        icon: 'i-heroicons-play-20-solid', 
-        children: [
-          { label: 'Introduction', to: '/docs/getting-started/introduction', icon: 'i-heroicons-light-bulb-20-solid' },
-          { label: 'Installation', to: '/docs/getting-started/installation', icon: 'i-heroicons-download-20-solid' }
-        ]
-      },
-      {
-        label: 'Features Overview',
-        to: '/docs/features-overview',
-        icon: 'i-heroicons-chart-pie-20-solid', 
-        children: [
-          { label: 'Features', to: '/docs/features-overview/features', icon: 'i-heroicons-star-20-solid' },
-          { label: 'Readme Scanner', to: '/docs/features-overview/readme-scanner', icon: 'i-heroicons-document-text-20-solid' },
-          { label: 'SEO Analysis', to: '/docs/features-overview/seo-analysis', icon: 'i-heroicons-search-circle-20-solid' },
-          { label: 'Social Integration', to: '/docs/features-overview/social-integration', icon: 'i-heroicons-share-20-solid' },
-          { label: 'Star Growth', to: '/docs/features-overview/star-growth', icon: 'i-heroicons-arrow-up-20-solid' },
-          { label: 'Traffic Insights', to: '/docs/features-overview/traffic-insights', icon: 'i-heroicons-chart-bar-20-solid' }
-        ]
-      }
-    ]
+    external: true
+  },
+  {
+    label: 'Pricing',
+    to: '/pricing',
+    icon: 'i-heroicons-currency-dollar-20-solid'
   },
   {
     label: 'Blog',
     to: '/blog',
-    icon: 'i-heroicons-newspaper-20-solid', 
+    icon: 'i-heroicons-newspaper-20-solid',
     children: [
       { label: 'Exploring the Culinary Wonders of Asia', to: '/blog/asian-cuisine', icon: 'i-heroicons-globe-20-solid' },
       { label: 'Discovering the Majestic Peaks', to: '/blog/pyrenees', icon: 'i-heroicons-mountain-20-solid' },
@@ -43,13 +25,8 @@ const links = [
       { label: 'The Rise of Cryptocurrencies', to: '/blog/cryptocurrencies', icon: 'i-heroicons-currency-dollar-20-solid' },
       { label: 'I tested Nuxt UI', to: '/blog/nuxt-ui', icon: 'i-heroicons-adjustments-horizontal-20-solid' }
     ]
-  },
-  {
-    label: 'Pricing',
-    to: '/pricing',
-    icon: 'i-heroicons-currency-dollar-20-solid' 
   }
-]
+];
 </script>
 
 <template>
